@@ -1805,24 +1805,19 @@ function initOnboarding() {
   });
 
   function updateStep() {
-    const content = document.getElementById('onboardingContent');
-    content.classList.add('fade');
-    setTimeout(() => {
-      text.textContent = ONBOARDING_STEPS[currentStep];
-      content.classList.remove('fade');
+    text.textContent = ONBOARDING_STEPS[currentStep];
 
-      // 更新圆点
-      dots.querySelectorAll('.onboarding-dot').forEach((d, i) => {
-        d.classList.toggle('active', i === currentStep);
-      });
+    // 更新圆点
+    dots.querySelectorAll('.onboarding-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === currentStep);
+    });
 
-      // 更新按钮文字
-      if (currentStep === ONBOARDING_STEPS.length - 1) {
-        nextBtn.textContent = '开始投喂';
-      } else {
-        nextBtn.textContent = '下一步 →';
-      }
-    }, 200);
+    // 更新按钮文字
+    if (currentStep === ONBOARDING_STEPS.length - 1) {
+      nextBtn.textContent = '开始投喂';
+    } else {
+      nextBtn.textContent = '下一步 →';
+    }
   }
 
   function goToStep(step) {
